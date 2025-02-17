@@ -103,6 +103,7 @@ int deletes( LLPtr *sPtr, int value )
       if ( currentPtr != NULL ) {
          tempPtr = currentPtr;
          previousPtr->nextPtr = currentPtr->nextPtr;
+         currentPtr->nextPtr->pPtr= previousPtr;
          free( tempPtr );
          return value;
       } // end if
@@ -149,7 +150,6 @@ void printListR( LLPtr currentPtr )
       puts( "List is empty.\n" );
    } // end if
    else {
-      puts( "The list is:" );
 
       // while not the end of the list
       while ( currentPtr->nextPtr!= NULL ) {
